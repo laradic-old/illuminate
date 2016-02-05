@@ -1,11 +1,11 @@
 <?php
 
-namespace Laradic\Foundation\Bootstrap;
+namespace Laradic\Phar\Bootstrap;
 
 use Illuminate\Contracts\Foundation\Application;
 use Sebwite\Support\Filesystem;
 
-class ExportAppFolder
+class EnsureDatabaseFile
 {
     /**
      * Bootstrap the given application.
@@ -16,9 +16,11 @@ class ExportAppFolder
      */
     public function bootstrap(Application $app)
     {
-        $fs = new Filesystem;
-        $fs->copyDirectory(app_path(), export_path());
+        $path = config('database.connections.sqlite.database');
+        $fs   = new Filesystem;
+        if ( !$fs->exists($path) )
+        {
+            $fs->touch($path);
+        }
     }
-
-
 }

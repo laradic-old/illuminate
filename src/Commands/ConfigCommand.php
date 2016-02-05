@@ -6,12 +6,12 @@
  */
 
 
-namespace Laradic\Config\Commands;
+namespace Laradic\Commands;
 
-use Laradic\Commands\BaseCommand;
+use Laradic\Console\Command;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ConfigCommand extends BaseCommand
+class ConfigCommand extends Command
 {
 
     protected $signature = 'config
@@ -50,6 +50,11 @@ EOT
         );
     }
 
+    protected function config()
+    {
+        return $this->getLaravel()->make('config');
+    }
+
     public function handle()
     {
         $key = $this->argument('key');
@@ -66,7 +71,7 @@ EOT
 
         if ( $this->option('unset') )
         {
-            cli()->forget($key);
+            $this->config()->forget($key);
         }
         elseif ( $val === null )
         {
@@ -94,26 +99,26 @@ EOT
             $val = null;
         }
 
-        cli()->set($key, $val);
+        $this->config()->set($key, $val);
         $this->comment("Changed [{$key}] to [{$val}] and saved to database");
     }
 
     protected function listConfig($key)
     {
-        #$config = cli()->config();
+        #$config = $this->config()->config();
 
         if ( $key !== null )
         {
-            if ( !cli()->has($key) )
+            if ( !$this->config()->has($key) )
             {
                 return $this->error("Config key [{$key}] does not exist");
             }
 
-            $config = cli()->get($key);
+            $config = $this->config()->get($key);
         }
         else
         {
-            $config = cli()->get();
+            $config = $this->config()->all();
         }
         if ( !is_array($config) )
         {

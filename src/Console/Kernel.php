@@ -49,17 +49,8 @@ class Kernel implements KernelContract
      */
     protected $bootstrappers = [
         Bootstrap\DetectEnvironment::class,
-        #Bootstrap\BootFilesystem::class,
-
-        # Prepare to local user files
-        Bootstrap\RemoveManifest::class,
-        Bootstrap\EnsureDirectories::class,
-        Bootstrap\ExportAppFolder::class,
-
         Bootstrap\LoadConfig::class,
-        Bootstrap\EnsureDatabaseFile::class,
-        #Bootstrap\DebugDetection::class,
-
+        \Sebwite\ConfigParser\DecorateConfiguration::class,
         Bootstrap\ConfigureLogging::class,
         Bootstrap\HandleExceptions::class,
         Bootstrap\RegisterFacades::class,
@@ -71,23 +62,21 @@ class Kernel implements KernelContract
     /**
      * Create a new console kernel instance.
      *
-     * @param  \Laradic\Foundation\Application        $app
+     * @param  \Laradic\Foundation\Application         $app
      * @param  \Illuminate\Contracts\Events\Dispatcher $events
      *
      * @return void
      */
     public function __construct(Application $app, Dispatcher $events)
     {
-        if ( !defined('ARTISAN_BINARY') )
-        {
+        if ( !defined('ARTISAN_BINARY') ) {
             define('ARTISAN_BINARY', 'artisan');
         }
 
         $this->app    = $app;
         $this->events = $events;
 
-        $this->app->booted(function ()
-        {
+        $this->app->booted(function () {
             $this->defineConsoleSchedule();
         });
     }
@@ -119,19 +108,16 @@ class Kernel implements KernelContract
         $this->bootstrap();
 
         return $this->getArtisan()->run($input, $output);
-        try
-        {
+        try {
         }
-        catch (Exception $e)
-        {
+        catch (Exception $e) {
             $this->reportException($e);
 
             $this->renderException($output, $e);
 
             return 1;
         }
-        catch (Throwable $e)
-        {
+        catch (Throwable $e) {
             $e = new FatalThrowableError($e);
 
             $this->reportException($e);
@@ -228,8 +214,7 @@ class Kernel implements KernelContract
      */
     public function bootstrap()
     {
-        if ( !$this->app->hasBeenBootstrapped() )
-        {
+        if ( !$this->app->hasBeenBootstrapped() ) {
             $this->app->bootstrapWith($this->bootstrappers());
         }
 
@@ -246,8 +231,7 @@ class Kernel implements KernelContract
      */
     protected function getArtisan()
     {
-        if ( is_null($this->artisan) )
-        {
+        if ( is_null($this->artisan) ) {
             return $this->artisan = (new Artisan($this->app, $this->events, $this->app->version()))
                 ->resolveCommands($this->commands);
         }

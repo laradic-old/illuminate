@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b2899c35cc8ad8db5c17d25b8e61f44e",
-    "content-hash": "3c587545048e30f64e11a2beb5d4ce7d",
+    "hash": "06d6c8192fd257baf75ee4928f26a52b",
+    "content-hash": "ba8956ce364d82f9b26899547bf70c12",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -1389,6 +1389,46 @@
                 "loop"
             ],
             "time": "2016-01-24 20:42:26"
+        },
+        {
+            "name": "sebwite/config-parser",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://bitbucket.org/sebwitepackages/sebwite-config-parser.git",
+                "reference": "4fa2dcc6b384f934f2054b3abfa2f2ed979a2bdc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/sebwitepackages/sebwite-config-parser/get/4fa2dcc6b384f934f2054b3abfa2f2ed979a2bdc.zip",
+                "reference": "4fa2dcc6b384f934f2054b3abfa2f2ed979a2bdc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "sebwite/support": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sebwite\\ConfigParser\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Sebwite",
+                    "email": "info@sebwite.nl",
+                    "homepage": "https://sebwite.nl"
+                }
+            ],
+            "description": "sebwite/config-parser is a laravel package",
+            "time": "2016-02-02 13:31:29"
         },
         {
             "name": "sebwite/support",

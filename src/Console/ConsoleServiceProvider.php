@@ -8,7 +8,7 @@ class ConsoleServiceProvider extends BaseConsoleProvider
 {
     protected $dir = __DIR__;
 
-   # protected $finder = true;
+    protected $finder = true;
 
     protected $namespace = 'Laradic\\Commands';
 

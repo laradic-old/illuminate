@@ -13,6 +13,7 @@ return [
     'providers'       => [
         # Bind sebwite / laravel foundation
         Laradic\Foundation\Providers\FoundationServiceProvider::class,
+        Laradic\Console\ConsoleServiceProvider::class,
         #Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Cache\CacheServiceProvider::class,
         #Illuminate\Database\DatabaseServiceProvider::class,

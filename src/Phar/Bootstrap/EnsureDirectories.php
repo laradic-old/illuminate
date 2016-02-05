@@ -6,7 +6,7 @@
  */
 
 
-namespace Laradic\Foundation\Bootstrap;
+namespace Laradic\Phar\Bootstrap;
 
 
 use Illuminate\Contracts\Foundation\Application;

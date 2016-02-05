@@ -25,7 +25,8 @@
         "symfony/var-dumper": "~3.0",
         "monolog/monolog": "~1.1",
         "vlucas/phpdotenv": "^2.2",
-        "classpreloader/classpreloader": "^3.0"
+        "classpreloader/classpreloader": "^3.0",
+        "sebwite/config-parser": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "~2.1",

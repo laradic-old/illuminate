@@ -64,15 +64,32 @@ trait ApplicationPaths
     }
 
     /**
+     * Set the base path for the application.
+     *
+     * @param  string $appPath
+     *
+     * @return $this
+     */
+    public function setAppPath($appPath)
+    {
+        #$this->basePath = rtrim($basePath, '\/');
+        $this->appPath = $appPath;
+
+        $this->bindPathsInContainer();
+
+        return $this;
+    }
+
+    /**
      * Bind all of the application paths in the container.
      *
      * @return void
      */
     protected function bindPathsInContainer()
     {
-        $this->instance('path', $this->path());
+        $this->instance('path', $this->appPath());
 
-        foreach ( [ 'base', 'config', 'database', 'lang', 'public', 'storage', 'home', 'export', 'resources' ] as $path )
+        foreach ( [ 'base',  'config', 'database', 'lang', 'public', 'storage', 'home', 'export', 'resources' ] as $path )
         {
             $ret = $this->{$path . 'Path'}();
             $this->instance('path.' . $path, $ret);
@@ -84,7 +101,7 @@ trait ApplicationPaths
      *
      * @return string
      */
-    public function path()
+    public function appPath()
     {
         return $this->appPath;
     }
@@ -96,22 +113,22 @@ trait ApplicationPaths
 
     public function resourcesPath()
     {
-        return Path::join($this->exportPath(), 'resources');
+        return Path::join($this->appPath(), 'resources');
     }
 
     public function configPath()
     {
-        return Path::join($this->exportPath(), 'config');
+        return Path::join($this->appPath(), 'config');
     }
 
     public function langPath()
     {
-        return Path::join($this->exportPath(), 'resources', 'lang');
+        return Path::join($this->appPath(), 'resources', 'lang');
     }
 
     public function publicPath()
     {
-        return Path::join($this->exportPath(), 'public');
+        return Path::join($this->appPath(), 'public');
     }
 
     public function homePath()
@@ -127,12 +144,12 @@ trait ApplicationPaths
 
     public function databasePath()
     {
-        return $this->databasePath ?: Path::join($this->exportPath(), 'database');
+        return $this->databasePath ?: Path::join($this->appPath(), 'database');
     }
 
     public function storagePath()
     {
-        return $this->storagePath ?: Path::join($this->exportPath(), 'storage');
+        return $this->storagePath ?: Path::join($this->appPath(), 'storage');
     }
 
     /**
