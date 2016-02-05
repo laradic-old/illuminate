@@ -1,0 +1,9 @@
+{!! $open !!}
+namespace {{ $testNamespace }};
+
+use Sebwite\Testbench\Traits\ServiceProviderTester;
+
+class {{ $classPrefix }}ServiceProviderTest extends TestCase
+{
+    use ServiceProviderTester;
+}

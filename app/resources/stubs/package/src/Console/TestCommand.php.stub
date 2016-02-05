@@ -1,0 +1,32 @@
+{!! $open !!}
+
+namespace {{ $namespace }}\Console;
+
+use Sebwite\Support\Console\Command;
+
+class {{ $classPrefix }}TestCommand extends Command
+{
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = '{{ $package }}:test';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = '{{ $package }} test command';
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
+    {
+        $this->line('Test');
+    }
+}

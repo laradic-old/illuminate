@@ -1,0 +1,13 @@
+
+
+<target name="phpcbf" description="Fixes coding standard violations using PHP_CodeSniffer Fixer">
+
+    <exec executable="${toolsdir}phpcbf.phar" logoutput="true">
+        <arg value="--tabWidth=4"/>
+        <arg value="--standard=PSR2"/>
+        <arg value="--extensions=php"/>
+        <arg value="--ignore=autoload.php"/>
+        <arg path="${project.basedir}/src"/>
+        <arg path="${project.basedir}/tests"/>
+    </exec>
+</target>

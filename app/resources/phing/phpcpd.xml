@@ -1,0 +1,6 @@
+
+<target name="phpcpd" description="Find duplicate code using PHPCPD and print human readable output. Intended for usage on the command line before committing.">
+    <exec executable="${toolsdir}phpcpd.phar" logoutput="true">
+        <arg path="${project.basedir}/src"/>
+    </exec>
+</target>

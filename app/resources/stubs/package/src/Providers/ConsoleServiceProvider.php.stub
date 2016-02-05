@@ -1,0 +1,33 @@
+{!! $open !!}
+
+namespace {{ $namespace }}\Providers;
+
+use Sebwite\Support\Console\ConsoleServiceProvider as BaseConsoleProvider;
+
+/**
+* This is the ConsoleServiceProvider.
+*
+* @author    {{ $config['author.name'] }}
+* @copyright {{ $config['copyright'] }}
+* @license   {{ $config['license_link'] }} {{ $config['license'] }}
+* @package   {{ $namespace }}
+*/
+class ConsoleServiceProvider extends BaseConsoleProvider
+{
+    /**
+     * @var string
+     */
+    protected $namespace = '{{ str_replace('\\', '\\\\', $namespace) }}\\Console';
+
+    /**
+     * @var string
+     */
+    protected $prefix = '{{ $vendor }}.{{ $package }}.commands.';
+
+    /**
+     * @var array
+     */
+    protected $commands = [
+        'test'   => '{{ $classPrefix }}Test'
+    ];
+}

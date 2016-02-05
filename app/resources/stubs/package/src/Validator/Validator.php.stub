@@ -1,0 +1,21 @@
+<?php
+
+namespace Ccblearning\Courses\Validator;
+
+use Sebwite\Support\Validator;
+
+class Validator extends Validator implements ValidatorInterface
+{
+
+    protected $rules = [
+    ];
+
+    public function onUpdate()
+    {
+
+    }
+
+    public function onCreate(){
+
+    }
+}

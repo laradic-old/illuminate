@@ -1,0 +1,115 @@
+[2016-02-05 03:13:41] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'SWCLI\Foundation\Providers\FoundationServiceProvider' not found' in /mnt/safe/php/projects/illuminate/src/Foundation/ProviderRepository.php:160
+Stack trace:
+#0 {main}  
+[2016-02-05 03:13:55] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'SWCLI\Providers\MasterServiceProvider' not found' in /mnt/safe/php/projects/illuminate/src/Foundation/ProviderRepository.php:160
+Stack trace:
+#0 {main}  
+[2016-02-05 03:14:24] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Laradic\Providers\MasterServiceProvider' not found' in /mnt/safe/php/projects/illuminate/src/Foundation/ProviderRepository.php:160
+Stack trace:
+#0 {main}  
+[2016-02-05 03:15:23] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'SWCLI\Dev\DevServiceProvider' not found' in /mnt/safe/php/projects/illuminate/src/Foundation/ProviderRepository.php:160
+Stack trace:
+#0 {main}  
+[2016-02-05 03:15:38] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'SWCLI\Projects\ProjectsServiceProvider' not found' in /mnt/safe/php/projects/illuminate/src/Foundation/ProviderRepository.php:160
+Stack trace:
+#0 {main}  
+[2016-02-05 03:15:57] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'SWCLI\Projects\ProjectsServiceProvider' not found' in /mnt/safe/php/projects/illuminate/src/Foundation/ProviderRepository.php:160
+Stack trace:
+#0 {main}  
+[2016-02-05 03:16:10] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Illuminate\Database\MigrationServiceProvider' not found' in /mnt/safe/php/projects/illuminate/src/Foundation/Providers/MigrationServiceProvider.php:15
+Stack trace:
+#0 {main}  
+[2016-02-05 03:16:33] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Illuminate\Database\MigrationServiceProvider' not found' in /mnt/safe/php/projects/illuminate/src/Foundation/Providers/MigrationServiceProvider.php:15
+Stack trace:
+#0 {main}  
+[2016-02-05 03:17:05] production.ERROR: exception 'ReflectionException' with message 'Class db.connection does not exist' in /mnt/safe/php/projects/illuminate/vendor/illuminate/container/Container.php:736
+Stack trace:
+#0 /mnt/safe/php/projects/illuminate/vendor/illuminate/container/Container.php(736): ReflectionClass->__construct('db.connection')
+#1 /mnt/safe/php/projects/illuminate/vendor/illuminate/container/Container.php(631): Illuminate\Container\Container->build('db.connection', Array)
+#2 /mnt/safe/php/projects/illuminate/src/Foundation/Application.php(690): Illuminate\Container\Container->make('db.connection', Array)
+#3 /mnt/safe/php/projects/illuminate/src/Providers/MasterServiceProvider.php(22): Laradic\Foundation\Application->make('db.connection')
+#4 /mnt/safe/php/projects/illuminate/src/Foundation/Application.php(531): Laradic\Providers\MasterServiceProvider->register()
+#5 /mnt/safe/php/projects/illuminate/src/Foundation/ProviderRepository.php(79): Laradic\Foundation\Application->register(Object(Laradic\Providers\MasterServiceProvider))
+#6 /mnt/safe/php/projects/illuminate/src/Foundation/Application.php(504): Laradic\Foundation\ProviderRepository->load(Array)
+#7 /mnt/safe/php/projects/illuminate/src/Foundation/Bootstrap/RegisterProviders.php(17): Laradic\Foundation\Application->registerConfiguredProviders()
+#8 /mnt/safe/php/projects/illuminate/src/Foundation/Application.php(318): Laradic\Foundation\Bootstrap\RegisterProviders->bootstrap(Object(Laradic\Foundation\Application))
+#9 /mnt/safe/php/projects/illuminate/src/Console/Kernel.php(233): Laradic\Foundation\Application->bootstrapWith(Array)
+#10 /mnt/safe/php/projects/illuminate/src/Console/Kernel.php(119): Laradic\Console\Kernel->bootstrap()
+#11 /mnt/safe/php/projects/illuminate/src/Boot.php(86): Laradic\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /mnt/safe/php/projects/illuminate/artisan(6): Laradic\Boot::bootAsMaster()
+#13 {main}  
+[2016-02-05 03:17:18] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Illuminate\Cache\CacheServiceProvider' not found' in /mnt/safe/php/projects/illuminate/src/Foundation/Application.php:580
+Stack trace:
+#0 {main}  
+[2016-02-05 03:17:43] production.ERROR: exception 'ReflectionException' with message 'Class db does not exist' in /mnt/safe/php/projects/illuminate/vendor/illuminate/container/Container.php:736
+Stack trace:
+#0 /mnt/safe/php/projects/illuminate/vendor/illuminate/container/Container.php(736): ReflectionClass->__construct('db')
+#1 /mnt/safe/php/projects/illuminate/vendor/illuminate/container/Container.php(631): Illuminate\Container\Container->build('db', Array)
+#2 /mnt/safe/php/projects/illuminate/src/Foundation/Application.php(690): Illuminate\Container\Container->make('db', Array)
+#3 /mnt/safe/php/projects/illuminate/vendor/illuminate/container/Container.php(1174): Laradic\Foundation\Application->make('db')
+#4 /mnt/safe/php/projects/illuminate/src/Config/ConfigServiceProvider.php(75): Illuminate\Container\Container->offsetGet('db')
+#5 /mnt/safe/php/projects/illuminate/src/Config/ConfigServiceProvider.php(37): Laradic\Config\ConfigServiceProvider->setUpConfig()
+#6 /mnt/safe/php/projects/illuminate/src/Foundation/Application.php(531): Laradic\Config\ConfigServiceProvider->register()
+#7 /mnt/safe/php/projects/illuminate/src/Foundation/ProviderRepository.php(79): Laradic\Foundation\Application->register(Object(Laradic\Config\ConfigServiceProvider))
+#8 /mnt/safe/php/projects/illuminate/src/Foundation/Application.php(504): Laradic\Foundation\ProviderRepository->load(Array)
+#9 /mnt/safe/php/projects/illuminate/src/Foundation/Bootstrap/RegisterProviders.php(17): Laradic\Foundation\Application->registerConfiguredProviders()
+#10 /mnt/safe/php/projects/illuminate/src/Foundation/Application.php(318): Laradic\Foundation\Bootstrap\RegisterProviders->bootstrap(Object(Laradic\Foundation\Application))
+#11 /mnt/safe/php/projects/illuminate/src/Console/Kernel.php(233): Laradic\Foundation\Application->bootstrapWith(Array)
+#12 /mnt/safe/php/projects/illuminate/src/Console/Kernel.php(119): Laradic\Console\Kernel->bootstrap()
+#13 /mnt/safe/php/projects/illuminate/src/Boot.php(86): Laradic\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /mnt/safe/php/projects/illuminate/artisan(6): Laradic\Boot::bootAsMaster()
+#15 {main}  
+[2016-02-05 03:19:39] production.ERROR: exception 'ReflectionException' with message 'Class db does not exist' in /mnt/safe/php/projects/illuminate/vendor/illuminate/container/Container.php:736
+Stack trace:
+#0 /mnt/safe/php/projects/illuminate/vendor/illuminate/container/Container.php(736): ReflectionClass->__construct('db')
+#1 /mnt/safe/php/projects/illuminate/vendor/illuminate/container/Container.php(631): Illuminate\Container\Container->build('db', Array)
+#2 /mnt/safe/php/projects/illuminate/src/Foundation/Application.php(690): Illuminate\Container\Container->make('db', Array)
+#3 /mnt/safe/php/projects/illuminate/vendor/illuminate/container/Container.php(1174): Laradic\Foundation\Application->make('db')
+#4 /mnt/safe/php/projects/illuminate/src/Config/ConfigServiceProvider.php(75): Illuminate\Container\Container->offsetGet('db')
+#5 /mnt/safe/php/projects/illuminate/src/Config/ConfigServiceProvider.php(37): Laradic\Config\ConfigServiceProvider->setUpConfig()
+#6 /mnt/safe/php/projects/illuminate/src/Foundation/Application.php(531): Laradic\Config\ConfigServiceProvider->register()
+#7 /mnt/safe/php/projects/illuminate/src/Foundation/ProviderRepository.php(79): Laradic\Foundation\Application->register(Object(Laradic\Config\ConfigServiceProvider))
+#8 /mnt/safe/php/projects/illuminate/src/Foundation/Application.php(504): Laradic\Foundation\ProviderRepository->load(Array)
+#9 /mnt/safe/php/projects/illuminate/src/Foundation/Bootstrap/RegisterProviders.php(17): Laradic\Foundation\Application->registerConfiguredProviders()
+#10 /mnt/safe/php/projects/illuminate/src/Foundation/Application.php(318): Laradic\Foundation\Bootstrap\RegisterProviders->bootstrap(Object(Laradic\Foundation\Application))
+#11 /mnt/safe/php/projects/illuminate/src/Console/Kernel.php(233): Laradic\Foundation\Application->bootstrapWith(Array)
+#12 /mnt/safe/php/projects/illuminate/src/Console/Kernel.php(119): Laradic\Console\Kernel->bootstrap()
+#13 /mnt/safe/php/projects/illuminate/src/Boot.php(86): Laradic\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /mnt/safe/php/projects/illuminate/artisan(6): Laradic\Boot::bootAsMaster()
+#15 {main}  
+[2016-02-05 03:20:00] production.ERROR: exception 'ReflectionException' with message 'Class db does not exist' in /mnt/safe/php/projects/illuminate/vendor/illuminate/container/Container.php:736
+Stack trace:
+#0 /mnt/safe/php/projects/illuminate/vendor/illuminate/container/Container.php(736): ReflectionClass->__construct('db')
+#1 /mnt/safe/php/projects/illuminate/vendor/illuminate/container/Container.php(631): Illuminate\Container\Container->build('db', Array)
+#2 /mnt/safe/php/projects/illuminate/src/Foundation/Application.php(690): Illuminate\Container\Container->make('db', Array)
+#3 /mnt/safe/php/projects/illuminate/vendor/illuminate/container/Container.php(1174): Laradic\Foundation\Application->make('db')
+#4 /mnt/safe/php/projects/illuminate/src/Config/ConfigServiceProvider.php(75): Illuminate\Container\Container->offsetGet('db')
+#5 /mnt/safe/php/projects/illuminate/src/Config/ConfigServiceProvider.php(37): Laradic\Config\ConfigServiceProvider->setUpConfig()
+#6 /mnt/safe/php/projects/illuminate/src/Foundation/Application.php(531): Laradic\Config\ConfigServiceProvider->register()
+#7 /mnt/safe/php/projects/illuminate/src/Foundation/ProviderRepository.php(79): Laradic\Foundation\Application->register(Object(Laradic\Config\ConfigServiceProvider))
+#8 /mnt/safe/php/projects/illuminate/src/Foundation/Application.php(504): Laradic\Foundation\ProviderRepository->load(Array)
+#9 /mnt/safe/php/projects/illuminate/src/Foundation/Bootstrap/RegisterProviders.php(17): Laradic\Foundation\Application->registerConfiguredProviders()
+#10 /mnt/safe/php/projects/illuminate/src/Foundation/Application.php(318): Laradic\Foundation\Bootstrap\RegisterProviders->bootstrap(Object(Laradic\Foundation\Application))
+#11 /mnt/safe/php/projects/illuminate/src/Console/Kernel.php(233): Laradic\Foundation\Application->bootstrapWith(Array)
+#12 /mnt/safe/php/projects/illuminate/src/Console/Kernel.php(119): Laradic\Console\Kernel->bootstrap()
+#13 /mnt/safe/php/projects/illuminate/src/Boot.php(86): Laradic\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /mnt/safe/php/projects/illuminate/artisan(6): Laradic\Boot::bootAsMaster()
+#15 {main}  
+[2016-02-05 03:21:13] production.ERROR: exception 'ReflectionException' with message 'Class db does not exist' in /mnt/safe/php/projects/illuminate/vendor/illuminate/container/Container.php:736
+Stack trace:
+#0 /mnt/safe/php/projects/illuminate/vendor/illuminate/container/Container.php(736): ReflectionClass->__construct('db')
+#1 /mnt/safe/php/projects/illuminate/vendor/illuminate/container/Container.php(631): Illuminate\Container\Container->build('db', Array)
+#2 /mnt/safe/php/projects/illuminate/src/Foundation/Application.php(690): Illuminate\Container\Container->make('db', Array)
+#3 /mnt/safe/php/projects/illuminate/vendor/illuminate/container/Container.php(1174): Laradic\Foundation\Application->make('db')
+#4 /mnt/safe/php/projects/illuminate/src/Config/ConfigServiceProvider.php(75): Illuminate\Container\Container->offsetGet('db')
+#5 /mnt/safe/php/projects/illuminate/src/Config/ConfigServiceProvider.php(37): Laradic\Config\ConfigServiceProvider->setUpConfig()
+#6 /mnt/safe/php/projects/illuminate/src/Foundation/Application.php(531): Laradic\Config\ConfigServiceProvider->register()
+#7 /mnt/safe/php/projects/illuminate/src/Foundation/ProviderRepository.php(79): Laradic\Foundation\Application->register(Object(Laradic\Config\ConfigServiceProvider))
+#8 /mnt/safe/php/projects/illuminate/src/Foundation/Application.php(504): Laradic\Foundation\ProviderRepository->load(Array)
+#9 /mnt/safe/php/projects/illuminate/src/Foundation/Bootstrap/RegisterProviders.php(17): Laradic\Foundation\Application->registerConfiguredProviders()
+#10 /mnt/safe/php/projects/illuminate/src/Foundation/Application.php(318): Laradic\Foundation\Bootstrap\RegisterProviders->bootstrap(Object(Laradic\Foundation\Application))
+#11 /mnt/safe/php/projects/illuminate/src/Console/Kernel.php(233): Laradic\Foundation\Application->bootstrapWith(Array)
+#12 /mnt/safe/php/projects/illuminate/src/Console/Kernel.php(119): Laradic\Console\Kernel->bootstrap()
+#13 /mnt/safe/php/projects/illuminate/src/Boot.php(86): Laradic\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /mnt/safe/php/projects/illuminate/artisan(6): Laradic\Boot::bootAsMaster()
+#15 {main}  

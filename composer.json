@@ -1,0 +1,45 @@
+{
+    "name": "laradic/illuminate",
+    "description": "Laravel illuminate foundation",
+    "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
+        "psr-4": {
+            "Laradic\\": "src"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "sebwite/support": "~1.0.23",
+        "illuminate/container": "~5.2",
+        "illuminate/config": "~5.2",
+        "illuminate/events": "~5.2",
+        "illuminate/console": "~5.2",
+        "illuminate/log": "~5.2",
+        "illuminate/cache": "~5.2",
+        "illuminate/contracts": "~5.2",
+        "paragonie/random_compat": "~1.1",
+        "symfony/console": "~3.0",
+        "symfony/var-dumper": "~3.0",
+        "monolog/monolog": "~1.1",
+        "vlucas/phpdotenv": "^2.2",
+        "classpreloader/classpreloader": "^3.0"
+    },
+    "require-dev": {
+        "barryvdh/laravel-ide-helper": "~2.1",
+        "raveren/kint": "~1.0",
+        "sebwite/idea-meta": "~1.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        },
+        "merge-plugin": {
+            "include": [
+                "composer.dev.json"
+            ]
+        }
+    }
+}

@@ -1,0 +1,9 @@
+
+<target name="pdepend" depends="prepare" description="Calculate software metrics using PHP_Depend and log result in XML format. Intended for usage within a continuous integration environment.">
+    <exec executable="${toolsdir}pdepend.phar" logoutput="true">
+        <arg value="--jdepend-xml=${project.basedir}/build/logs/jdepend.xml"/>
+        <arg value="--jdepend-chart=${project.basedir}/build/pdepend/dependencies.svg"/>
+        <arg value="--overview-pyramid=${project.basedir}/build/pdepend/overview-pyramid.svg"/>
+        <arg path="${project.basedir}/src"/>
+    </exec>
+</target>

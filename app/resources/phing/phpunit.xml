@@ -1,0 +1,8 @@
+
+
+<target name="phpunit" depends="prepare" description="Run unit tests with PHPUnit">
+    <exec executable="${toolsdir}phpunit.phar" logoutput="true">
+        <arg value="--configuration"/>
+        <arg path="${project.basedir}/build/phpunit.xml"/>
+    </exec>
+</target>

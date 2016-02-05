@@ -1,0 +1,31 @@
+{
+    "name": "{{ $packageName }}",
+    "description": "{{ $packageName }} is a laravel package",
+    "repositories": [{"type": "composer", "url": "http://packages.sebwite.nl"}],
+    "authors": [
+        {
+            "name": "{{ $config['author.name'] }}",
+            "email": "{{ $config['author.email'] }}",
+            "homepage": "{{ $config['author.homepage'] }}"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.5.9",
+        "sebwite/support": "1.0.*"
+    },
+    "require-dev": {
+        "sebwite/testbench": "1.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "{{ str_replace('\\', '\\\\', $namespace) }}\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

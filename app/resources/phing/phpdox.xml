@@ -1,0 +1,5 @@
+
+
+<target name="phpdox" depends="phploc-ci,phpcs-ci,phpmd-ci" description="Generate project documentation using phpDox">
+    <exec executable="${toolsdir}phpdox.phar" dir="${project.basedir}/build" logoutput="true"/>
+</target>

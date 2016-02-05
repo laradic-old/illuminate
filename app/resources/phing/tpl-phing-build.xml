@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="change-me" default="build">
+    <property name="toolsdir" value="${project.basedir}/build/tools/"/>
+    <property name="changelog.header" value="# Changelog"/>
+    <property name="changelog.filename" value="CHANGELOG.md"/>
+    <property name="gitremote.url" value="https://github.com"/>
+    <property name="gitremote.owner" value="robinradic"/>
+    <property name="gitremote.repo" value="${phing.project.name}"/>
+
+    <if>
+        <equals arg1="${phing.project.name}" arg2="change-me" />
+        <then>
+            <fail message="You need to change the project name." />
+        </then>
+    </if>
+
+    <target name="git.submodule.update">
+        <exec command="bash ${project.basedir}/scripts/submodule-update.sh" dir="${project.basedir}" logoutput="true" />
+    </target>
+
+    <target name="build" depends="vendor,prepare,lint,phploc-ci,pdepend,phpcs-ci,phpcpd-ci,phpunit,phpdox,phpdoc" description=""/>
+
+    <target name="clean" unless="clean.done" description="Cleanup build artifacts">
+        <delete dir="${project.basedir}/build/api"/>
+        <delete dir="${project.basedir}/build/coverage"/>
+        <delete dir="${project.basedir}/build/logs"/>
+        <delete dir="${project.basedir}/build/pdepend"/>
+        <delete dir="${project.basedir}/build/phpdox"/>
+        <delete dir="${project.basedir}/build/phpdoxwd"/>
+        <delete dir="${project.basedir}/build/phpdoc"/>
+        <property name="clean.done" value="true"/>
+    </target>
+
+    <target name="vendor" unless="vendor.done" description="Cleanup composer and vendor">
+        <delete dir="${project.basedir}/vendor"/>
+        <delete file="${project.basedir}/composer.lock"/>
+        <exec executable="composer" logoutput="true">
+            <arg line="install"/>
+        </exec>
+        <property name="vendor.done" value="true"/>
+    </target>
+
+
+    <target name="prepare" unless="prepare.done" depends="clean,git.submodule.update" description="Prepare for build">
+
+        <mkdir dir="${project.basedir}/build/coverage"/>
+        <mkdir dir="${project.basedir}/build/logs"/>
+        <mkdir dir="${project.basedir}/build/pdepend"/>
+        <mkdir dir="${project.basedir}/build/phpdox"/>
+        <mkdir dir="${project.basedir}/build/phpdoxwd"/>
+        <mkdir dir="${project.basedir}/build/phpdoc"/>
+        <exec executable="composer" logoutput="true">
+            <arg line="install"/>
+        </exec>
+        <property name="prepare.done" value="true"/>
+    </target>
+
+    <target name="lint" description="Perform syntax check of sourcecode files">
+        <apply executable="php" failonerror="true">
+            <arg value="-l"/>
+
+            <fileset dir="${project.basedir}/src" >
+                <include name="**/*.php"/>
+            </fileset>
+
+            <fileset dir="${project.basedir}/tests">
+                <include name="**/*.php"/>
+            </fileset>
+        </apply>
+    </target>
+
+</project>

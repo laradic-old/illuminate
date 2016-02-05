@@ -1,0 +1,39 @@
+{!! $open !!}
+
+namespace {{ $namespace }};
+
+use Sebwite\Support\ServiceProvider;
+
+/**
+* The main service provider
+*
+* @author    {{ $config['author.name'] }}
+* @copyright {{ $config['copyright'] }}
+* @license   {{ $config['license_link'] }} {{ $config['license'] }}
+* @package   {{ $namespace }}
+*/
+class {{ $classPrefix }}ServiceProvider extends ServiceProvider
+{
+    protected $dir = __DIR__;
+
+    protected $configFiles = [ '{{ $configFileName }}' ];
+
+    protected $providers = [
+        \{{ $namespace }}\Providers\ConsoleServiceProvider::class
+    ];
+    /**
+     * {@inheritdoc}
+     */
+    public function boot()
+    {
+        $app = parent::boot();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function register()
+    {
+        $app = parent::register();
+    }
+}

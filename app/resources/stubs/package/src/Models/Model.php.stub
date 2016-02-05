@@ -1,0 +1,42 @@
+{!! $open !!}
+
+namespace {{ $namespace }}\Models;
+
+use Illuminate\Database\Eloquent\Model;
+@if($softDeletes)
+use Illuminate\Database\Eloquent\SoftDeletes;
+@endif
+@if($routeCrumbs)
+use Sebwite\RouteCrumbs\Contracts\RouteCrumbsModel;
+use Sebwite\RouteCrumbs\Traits\RouteCrumbsModelTrait;
+@endif
+
+/**
+ * This is the {{ $className }} model class.
+ *
+ * @package   {{ $namespace }}
+ * @author    {{ $config['author.name'] }}
+ * @copyright {{ $config['copyright'] }}
+ * @mixin \Illuminate\Database\Eloquent\Builder
+ * @mixin \Illuminate\Database\Query\Builder
+ */
+class {{ $className }} extends Model @if($routeCrumbs)implements RouteCrumbsModel @endif
+{
+
+    @if($softDeletes)use SoftDeletes;@endif
+
+    @if($routeCrumbs)use RouteCrumbsModelTrait;@endif
+
+    protected $dates = [ 'created_at', 'updated_at', @if($softDeletes)'deleted_at'@endif ];
+
+    protected $table = '{{ $table }}';
+
+    protected $fillable = [
+    ];
+
+    @if($routeCrumbs)protected $routeParams = [
+        '{{ $table }}' => 'id'
+    ];
+    @endif
+
+}

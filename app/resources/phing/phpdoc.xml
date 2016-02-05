@@ -1,0 +1,8 @@
+
+<target name="phpdoc" depends="prepare" description="Generate project documentation using phpDocumentator">
+    <exec executable="${toolsdir}phpdoc.phar" dir="${project.basedir}/build" logoutput="true">
+        <arg line="-t ./phpdoc"/>
+        <arg line="-d ../src"/>
+        <arg line="--template=responsive-twig"/>
+    </exec>
+</target>

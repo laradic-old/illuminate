@@ -1,0 +1,11 @@
+
+<target name="phpcs-ci" depends="prepare" description="Find coding standard violations using PHP_CodeSniffer and log result in XML format. Intended for usage within a continuous integration environment.">
+    <exec executable="${toolsdir}phpcs.phar" output="/dev/null">
+        <arg value="--report=checkstyle"/>
+        <arg value="--report-file=${project.basedir}/build/logs/checkstyle.xml"/>
+        <arg value="--standard=PSR2"/>
+        <arg value="--extensions=php"/>
+        <arg value="--ignore=autoload.php"/>
+        <arg path="${project.basedir}/src"/>
+    </exec>
+</target>
